@@ -35,33 +35,7 @@ html, body, #root {
   background: #05060e;
 }
 
-.page-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 15% 15%, rgba(120, 60, 255, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 70% at 85% 80%, rgba(30, 200, 160, 0.14) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 50% at 50% 50%, rgba(60, 30, 130, 0.12) 0%, transparent 65%);
-  filter: blur(70px);
-  animation: bgDrift 18s ease-in-out infinite alternate;
-}
 
-.page-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 55px 55px;
-}
-
-@keyframes bgDrift {
-  0%   { transform: scale(1) rotate(0deg); }
-  50%  { transform: scale(1.06) rotate(2deg) translateY(-18px); }
-  100% { transform: scale(0.97) rotate(-2deg) translateY(12px); }
-}
 
 /* ── CENTER CARD ── */
 .center-card {
@@ -151,6 +125,8 @@ html, body, #root {
   position: relative;
   display: inline-flex;
   align-items: center;
+  flex-direction: row; /* always LTR: text left, arrow right */
+  direction: ltr;
   border-radius: 100px;
   padding: 0;
   text-decoration: none;
@@ -180,10 +156,11 @@ html, body, #root {
   z-index: 1;
   display: flex;
   align-items: center;
+  flex-direction: row; /* icon then text, left to right */
   gap: 9px;
   background: #ffffff;
   color: #000000;
-  border-radius: 100px 0 0 100px;
+  border-radius: 100px 0 0 100px; /* rounded on left */
   padding: 13px 26px;
   font-size: 15px;
   font-weight: 700;
