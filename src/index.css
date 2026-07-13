@@ -2,6 +2,7 @@
    Massage Therapy Indonesian Experts
    Single-screen, no-scroll layout
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -13,7 +14,7 @@ html, body, #root {
   height: 100%;
   width: 100%;
   overflow: hidden; /* NO SCROLLING */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 /* ── FULL SCREEN ROOT ── */
@@ -32,15 +33,107 @@ html, body, #root {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: #05060e;
+  /* Desktop image by default */
+  background-image: url('/spa_bg_desktop.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bgBreath 8s ease-in-out infinite;
+  will-change: transform;
 }
 
+/* Dark backdrop overlay — black/70 */
+.page-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70);
+  z-index: 1;
+}
 
+/* Shimmer light sweep */
+.page-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 200, 100, 0.06) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 5s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes bgBreath {
+  0%, 100% { transform: scale(1.00); }
+  50%       { transform: scale(1.04); }
+}
+
+@keyframes shimmerSweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mobile: switch to portrait image */
+@media (max-width: 640px) {
+  .page-bg {
+    background-image: url('/spa_bg_mobile.png');
+    background-position: center top;
+    animation: bgBreathMobile 8s ease-in-out infinite;
+  }
+}
+
+@keyframes bgBreathMobile {
+  0%, 100% { transform: scale(1.00); }
+  50%       { transform: scale(1.05); }
+}
+
+/* Floating ambient particles */
+.page-root::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 140, 60, 0.22) 0%, transparent 70%);
+  top: -80px;
+  left: -80px;
+  z-index: 0;
+  animation: floatOrb1 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.page-root::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180, 100, 30, 0.20) 0%, transparent 70%);
+  bottom: -60px;
+  right: -60px;
+  z-index: 0;
+  animation: floatOrb2 11s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(30px, 40px) scale(1.15); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-25px, -35px) scale(1.12); }
+}
 
 /* ── CENTER CARD ── */
 .center-card {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +155,7 @@ html, body, #root {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.04em;
   animation: pillGlow 2.8s ease-in-out infinite;
 }
@@ -74,19 +167,20 @@ html, body, #root {
 
 /* ── MAIN TITLE ── */
 .main-title {
-  font-size: clamp(28px, 7vw, 42px);
+  font-size: clamp(26px, 6.5vw, 40px);
   font-weight: 800;
+  font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.2;
-  letter-spacing: -0.5px;
-  color: #ffffff;
-  text-shadow: none;
-  -webkit-text-fill-color: #ffffff;
+  letter-spacing: -0.3px;
+  color: #f5f5f0;
+  -webkit-text-fill-color: #f5f5f0;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ── SUBTITLE ── */
 .subtitle {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(245, 245, 240, 0.80);
   line-height: 1.7;
   max-width: 360px;
 }
@@ -106,7 +200,7 @@ html, body, #root {
 
 .rating-label {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(245, 245, 240, 0.80);
   margin-left: 6px;
   letter-spacing: 0.03em;
 }
@@ -116,7 +210,7 @@ html, body, #root {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(245, 245, 240, 0.75);
   font-weight: 600;
 }
 
