@@ -84,6 +84,10 @@ html, body, #root {
     background-position: center top;
     animation: bgBreathMobile 8s ease-in-out infinite;
   }
+  
+  .wa-btn-wrapper {
+    width: calc(100vw - 8px) !important;
+  }
 }
 
 @keyframes bgBreathMobile {
@@ -226,6 +230,8 @@ html, body, #root {
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.25s ease;
+  width: 380px;
+  max-width: 100%;
 }
 .wa-btn-wrapper:hover  { transform: scale(1.04); }
 .wa-btn-wrapper:active { transform: scale(0.97); }
@@ -250,6 +256,8 @@ html, body, #root {
   z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   flex-direction: row; /* icon then text, left to right */
   gap: 9px;
   background: #ffffff;
