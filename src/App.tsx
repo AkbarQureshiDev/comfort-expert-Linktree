@@ -7,7 +7,7 @@ const WA_URL = 'https://wa.me/966548142982'
 
 export default function App() {
   return (
-    <div className="page-root">
+    <div className="page-root" dir="rtl" lang="ar">
       {/* ── Animated background ── */}
       <div className="page-bg" />
 
@@ -22,7 +22,7 @@ export default function App() {
           transition={{ delay: 0.25, duration: 0.5 }}
         >
           <FiMapPin size={10} />
-          Saudi Arabia · Professional Service
+          المملكة العربية السعودية · خدمة احترافية
         </motion.div>
 
         {/* Heading */}
@@ -32,9 +32,9 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.6 }}
         >
-          Massage Therapy
+          العلاج بالتدليك
           <br />
-          Indonesian Experts
+          خبراء إندونيسيون
         </motion.h1>
 
         {/* Subtitle */}
@@ -44,7 +44,7 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.6 }}
         >
-          Authentic traditional Indonesian healing techniques — brought to you by certified expert therapists.
+          تقنيات الشفاء الإندونيسية التقليدية الأصيلة — يقدّمها لك معالجون متخصصون معتمدون.
         </motion.p>
 
         {/* Stars */}
@@ -63,7 +63,7 @@ export default function App() {
               transition={{ delay: 0.55 + i * 0.07, type: 'spring' }}
             >★</motion.span>
           ))}
-          <span className="rating-label">4.9 · 500+ reviews</span>
+          <span className="rating-label">4.9 · أكثر من 500 تقييم</span>
         </motion.div>
 
         {/* CTA label */}
@@ -73,7 +73,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.75 }}
         >
-          Book Your Session
+          احجز جلستك
         </motion.span>
 
         {/* WhatsApp Button */}
@@ -91,7 +91,7 @@ export default function App() {
           <div className="wa-glow" />
           <div className="wa-pill">
             <FaWhatsapp className="wa-icon" />
-            Chat on WhatsApp
+            تواصل عبر واتساب
           </div>
           <div className="wa-circle">
             <FiArrowUpRight className="wa-arrow slide-out" />
