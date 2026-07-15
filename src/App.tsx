@@ -139,7 +139,6 @@ function App() {
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col gap-4 w-full items-center">
             <MagneticButtonDemo />
-            <PhoneButton />
           </motion.div>
 
           {/* Service Option Cards */}
@@ -212,6 +211,11 @@ function App() {
             <p className="font-sans text-[0.78rem] font-semibold text-yellow-400 text-center mt-5 opacity-80 tracking-widest">
               ✦ الرياض فقط ✦
             </p>
+          </motion.div>
+
+          {/* Phone Button — shown after all content */}
+          <motion.div variants={itemVariants} className="flex flex-col gap-4 w-full items-center">
+            <PhoneButton />
           </motion.div>
         </motion.div>
       </div>
