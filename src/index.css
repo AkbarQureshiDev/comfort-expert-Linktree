@@ -65,7 +65,7 @@ html, body {
 
 @media (max-width: 640px) {
   .bg-spa-image {
-    background-image: url('/spa_bg_mobile.png');
+    background-image: url('/mb-bg.jpeg');
     background-position: center top;
   }
 }

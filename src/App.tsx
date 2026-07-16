@@ -82,9 +82,9 @@ function App() {
         <div className="absolute w-[400px] h-[400px] rounded-full blur-[80px] opacity-20 bottom-[-100px] right-[-100px] bg-[radial-gradient(circle,rgba(180,100,30,0.20)_0%,transparent_70%)] animate-float-orb-br"></div>
       </div>
 
-      {/* Clickable Wrapper */}
+      {/* Full-page WhatsApp click wrapper */}
       <div
-        className="relative min-h-screen z-10 flex justify-center items-start sm:items-center cursor-pointer py-12 sm:py-20"
+        className="flex flex-col relative min-h-screen z-10 justify-center items-center py-12 sm:py-20 cursor-pointer"
         onClick={() => window.open('https://wa.me/966548142982', '_blank')}
       >
         <motion.div
@@ -92,7 +92,6 @@ function App() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          onClick={(e) => e.stopPropagation()}
         >
           {/* Location Pill */}
           <motion.div variants={itemVariants}>

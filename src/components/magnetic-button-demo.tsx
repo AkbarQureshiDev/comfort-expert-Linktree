@@ -3,18 +3,12 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function MagneticButtonDemo() {
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    window.open("https://wa.me/966548142982", "_blank");
-  };
-
   return (
     <motion.div
       dir="ltr"
       className="group relative inline-flex items-center flex-row border-none rounded-full p-0 no-underline cursor-pointer transition-transform duration-250 w-full max-w-[380px] h-[52px]"
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
-      onClick={handleClick}
     >
       {/* Green glow background */}
       <div className="absolute inset-[-10px] rounded-full bg-[radial-gradient(ellipse,rgba(37,211,102,0.45)_0%,transparent_70%)] blur-[18px] pointer-events-none animate-wa-glow"></div>
