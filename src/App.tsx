@@ -123,6 +123,32 @@ function App() {
             <StarRating />
           </motion.div>
 
+          {/* Tap hint */}
+          <motion.div
+            variants={itemVariants}
+            dir="ltr"
+            className="flex items-center gap-2"
+          >
+            {['Tap', 'anywhere', 'to', 'chat', 'us'].map((word, i) => (
+              <motion.span
+                key={i}
+                className="text-sm sm:text-base font-bold text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]"
+                animate={{
+                  opacity: [0.6, 1, 0.6],
+                  y: [0, -3, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  delay: i * 0.15,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
+
           {/* CTA label */}
           <motion.div
             variants={itemVariants}

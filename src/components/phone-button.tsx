@@ -6,7 +6,7 @@ export default function PhoneButton() {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.preventDefault();
-    window.location.href = 'https://wa.me/966548142982';
+    window.location.href = 'tel:+966548142982';
   };
 
   return (
